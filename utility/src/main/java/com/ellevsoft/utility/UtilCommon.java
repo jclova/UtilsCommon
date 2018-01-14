@@ -127,7 +127,7 @@ public class UtilCommon {
         }
     }
 
-	protected static void setFont(ViewGroup group, Typeface font) {
+	public static void applyFont(ViewGroup group, Typeface font) {
 		if(font == null)
 			return;
 		if(group == null)
@@ -142,7 +142,7 @@ public class UtilCommon {
 			else if(v instanceof Button)
 				((Button) v).setTypeface(font);
 			else if (v instanceof ViewGroup)
-				setFont((ViewGroup) v, font);
+				applyFont((ViewGroup) v, font);
 		}
 	}
 
