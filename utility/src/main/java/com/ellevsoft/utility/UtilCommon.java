@@ -7,7 +7,6 @@ import android.content.pm.PackageInfo;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,6 +69,24 @@ public class UtilCommon {
 		}
 	}
 
+	public static String mergeString(String[] src, String delims) {
+		if(src == null || delims == null)
+			return null;
+		try {
+			StringBuilder merged = new StringBuilder();
+			for (int i = 0; i < src.length; i++) {
+				if (i == 0)
+					merged = new StringBuilder(src[i]);
+				else
+					merged.append(delims).append(src[i]);
+			}
+			return merged.toString();
+		}
+		catch(Exception e) {
+			return null;
+		}
+	}
+
 	public static float convertDpToPixel(float dp, Context context){
 		Resources resources = context.getResources();
 		DisplayMetrics metrics = resources.getDisplayMetrics();
@@ -85,7 +102,7 @@ public class UtilCommon {
 	}
 
 
-    public static void sendEmail(Context context, boolean isPaidApp, String emailReceiver, String subject, @Nullable String message) {
+    public static void sendEmail(Context context, boolean isPaidApp, String emailReceiver, String subject, String message) {
         String sOSVersion = null;
         String sManufacturer = null;
         String sModel = null;
