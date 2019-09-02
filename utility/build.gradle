@@ -1,16 +1,17 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
-
 
 
     defaultConfig {
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 2
-        versionName "1.0.2"
+        versionCode 3
+        versionName "1.0.3"
+        multiDexEnabled true
     }
 
     compileOptions {
@@ -33,4 +34,8 @@ android {
 }
 
 dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
